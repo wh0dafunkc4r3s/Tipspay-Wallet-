@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TIPSPAY Wallet</title>
+  <script src="chart.min.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+
+<h1>TIPSPAY Wallet</h1>
+
+<button onclick="startPolling()">Canlı Güncelleme</button>
+
+<h2>Toplam TVL: <span id="tvl">$0</span></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Adres</th>
+      <th>Bakiye</th>
+      <th>USD</th>
+    </tr>
+  </thead>
+  <tbody id="balancesBody"></tbody>
+</table>
+
+<canvas id="balanceChart"></canvas>
+
+<h2>Transfer Geçmişi</h2>
+<table>
+  <tbody id="txBody"></tbody>
+</table>
+
+</body>
+</html>
