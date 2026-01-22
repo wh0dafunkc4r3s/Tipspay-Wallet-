@@ -1,35 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
-  <title>TIPSPAY Wallet</title>
-  <script src="chart.min.js"></script>
+  <meta charset="UTF-8" />
+  <title>TIPSPAY Web Wallet</title>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Wallet Logic -->
   <script defer src="app.js"></script>
+
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #050816;
+      color: #f5f5f5;
+      padding: 20px;
+    }
+    h1, h2 {
+      margin-top: 0;
+    }
+    .card {
+      background: #111827;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 0 1px #1f2937;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      padding: 8px;
+      border-bottom: 1px solid #1f2937;
+      text-align: left;
+    }
+    th {
+      color: #9ca3af;
+    }
+    button {
+      background: #3b82f6;
+      border: none;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-right: 8px;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+    .mono {
+      font-family: monospace;
+      font-size: 0.85rem;
+    }
+  </style>
 </head>
+
 <body>
 
-<h1>TIPSPAY Wallet</h1>
+<h1>TIPSPAY Web Wallet</h1>
+<p style="opacity:0.8">
+  FireFly üzerinde çalışan TIPSPAY Corechain – ERC20 (Tether) izleme ve yönetim arayüzü
+</p>
 
-<button onclick="startPolling()">Canlı Güncelleme</button>
+<!-- CONTROLS -->
+<div class="card">
+  <button onclick="startPolling()">Canlı Güncelleme Başlat</button>
+  <button onclick="stopPolling()">Durdur</button>
+</div>
 
-<h2>Toplam TVL: <span id="tvl">$0</span></h2>
+<!-- TVL -->
+<div class="card">
+  <h2>Toplam TVL</h2>
+  <h1 id="tvl">$0</h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Adres</th>
-      <th>Bakiye</th>
-      <th>USD</th>
-    </tr>
-  </thead>
-  <tbody id="balancesBody"></tbody>
-</table>
+<!-- BALANCES -->
+<div class="card">
+  <h2>Adres Bakiyeleri</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Adres</th>
+        <th>Bakiye</th>
+        <th>USD Değeri</th>
+      </tr>
+    </thead>
+    <tbody id="balancesBody"></tbody>
+  </table>
+</div>
 
-<canvas id="balanceChart"></canvas>
+<!-- CHART -->
+<div class="card">
+  <h2>Adres Bazlı Dağılım</h2>
+  <canvas id="balanceChart"></canvas>
+</div>
 
-<h2>Transfer Geçmişi</h2>
-<table>
-  <tbody id="txBody"></tbody>
-</table>
+<!-- TRANSFERS -->
+<div class="card">
+  <h2>Transfer Geçmişi</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>From</th>
+        <th>To</th>
+        <th>Tutar</th>
+        <th>Durum</th>
+      </tr>
+    </thead>
+    <tbody id="txBody"></tbody>
+  </table>
+</div>
 
 </body>
 </html>
